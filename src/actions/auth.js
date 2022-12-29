@@ -69,7 +69,7 @@ export const login = (email, password) => async dispatch => {
   };
   const body = JSON.stringify({ email, password });
   try {
-    const res = await axios.post('/api/auth', body, config);
+    const res = await axios.post('https://code-aid.onrender.com/api/auth', body, config);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
@@ -77,12 +77,12 @@ export const login = (email, password) => async dispatch => {
     dispatch(loadUser());
   } catch (error) {
     console.log(error.response);
-    const errors = error.response.data.errors;
-    if (errors) {
-      errors.forEach(error => {
-        dispatch(setAlert(error.msg, 'danger'));
-      });
-    }
+    // const errors = error.response.data.errors;
+    // if (errors) {
+    //   errors.forEach(error => {
+    //     dispatch(setAlert(error.msg, 'danger'));
+    //   });
+    // }
     dispatch({
       type: LOGIN_FAIL,
     });
