@@ -10,7 +10,7 @@ const Profiles = ({ getAllProfiles, profile: { profiles, loading } }) => {
     getAllProfiles();
   }, [getAllProfiles]);
   return (
-    <Fragment>
+    <div className='profiles'>
       {loading ? (
         <Spinner />
       ) : (
@@ -31,7 +31,7 @@ const Profiles = ({ getAllProfiles, profile: { profiles, loading } }) => {
           </div>
         </Fragment>
       )}
-    </Fragment>
+    </div>
   );
 };
 

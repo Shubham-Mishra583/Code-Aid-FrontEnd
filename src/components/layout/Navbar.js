@@ -56,11 +56,11 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
         visible={visible}
       >
         <div className="drawer" style={{display : "flex", flexDirection : "column"}}>
-          <Link to = "/">Home</Link>
-          <Link to = "/ide">IDE</Link>
-          <Link to = "/profiles">Developers</Link>
-          <Link to="/posts">Posts</Link>
-          <Link to = "/dashboard"></Link>
+          <Link to = "/" onClick={onClose}>Home</Link>
+          <Link to = "/ide" onClick={onClose}>IDE</Link>
+          <Link to = "/profiles" onClick={onClose}>Developers</Link>
+          <Link to="/posts" onClick={onClose}>Posts</Link>
+          <Link to = "/dashboard" onClick={onClose}></Link>
           <a href="/" onClick={logout}>Logout</a>
         </div>
 
@@ -103,11 +103,11 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
         visible={visible}
       >
         <div className="drawer" style={{display : "flex", flexDirection : "column"}}>
-          <Link to = "/">Home</Link>
-          <Link to = "/ide">IDE</Link>
-          <Link to = "/profiles">Developers</Link>
-          <Link to = "/register">Register</Link>
-          <Link to = "/login">Login</Link>
+          <Link to = "/" onClick={onClose}>Home</Link>
+          <Link to = "/ide" onClick={onClose} >IDE</Link>
+          <Link to = "/profiles" onClick={onClose}>Developers</Link>
+          <Link to = "/register" onClick={onClose}> Register</Link>
+          <Link to = "/login" onClick={onClose}>Login</Link>
         </div>
 
       </Drawer>
