@@ -43,7 +43,7 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
       </li>
     </ul>
 
-    <div className="nav-guest-mobile">
+    <div className="nav-auth-mobile">
                {" "}
         <button onClick={showDrawer}>
               <span><MenuOutlined/></span>

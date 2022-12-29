@@ -359,6 +359,25 @@ button {
   margin-right: 0.6rem;
 }
 
+.nav-auth-mobile{
+  color: black;
+  display: none;
+}
+.nav-auth-mobile button{
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: white;
+  position: relative;
+  right: -10px;
+}
+.nav-auth-mobile button span{
+  text-align: center;
+  position: relative;
+  left: -1.5px;
+  /* margin-left: -8px; */
+}
+
 .nav-guest-mobile{
   color: black;
   display: none;
@@ -578,6 +597,10 @@ button {
   }
 
   .nav-guest-mobile{
+    display: block;
+  }
+
+  .nav-auth-mobile{
     display: block;
   }
 }
