@@ -14,7 +14,7 @@ import {
 // Get posts
 export const getPosts = () => async dispatch => {
   try {
-    const res = await axios.get('/api/posts');
+    const res = await axios.get('https://code-aid.onrender.com/api/posts');
     dispatch({
       type: GET_POSTS,
       payload: res.data,
@@ -32,7 +32,7 @@ export const createPost = formData => async dispatch => {
     },
   };
   try {
-    const res = await axios.post(`/api/posts`, formData, config);
+    const res = await axios.post(`https://code-aid.onrender.com/api/posts`, formData, config);
     dispatch({
       type: CREATE_POST,
       payload: res.data,
@@ -46,7 +46,7 @@ export const createPost = formData => async dispatch => {
 // Like a post
 export const likePost = id => async dispatch => {
   try {
-    const res = await axios.put(`/api/posts/like/${id}`);
+    const res = await axios.put(`https://code-aid.onrender.com/api/posts/like/${id}`);
     dispatch({
       type: UPDATE_LIKES,
       payload: { id, likes: res.data },
@@ -59,7 +59,7 @@ export const likePost = id => async dispatch => {
 // Unike a post
 export const unlikePost = id => async dispatch => {
   try {
-    const res = await axios.put(`/api/posts/unlike/${id}`);
+    const res = await axios.put(`https://code-aid.onrender.com/api/posts/unlike/${id}`);
     dispatch({
       type: UPDATE_LIKES,
       payload: { id, likes: res.data },
@@ -72,7 +72,7 @@ export const unlikePost = id => async dispatch => {
 // Delete a post
 export const deletePost = id => async dispatch => {
   try {
-    await axios.delete(`/api/posts/${id}`);
+    await axios.delete(`https://code-aid.onrender.com/api/posts/${id}`);
     dispatch({
       type: DELETE_POST,
       payload: id,
@@ -86,7 +86,7 @@ export const deletePost = id => async dispatch => {
 // Get post
 export const getPost = id => async dispatch => {
   try {
-    const res = await axios.get(`/api/posts/${id}`);
+    const res = await axios.get(`https://code-aid.onrender.com/api/posts/${id}`);
     dispatch({
       type: GET_POST,
       payload: res.data,
@@ -105,7 +105,7 @@ export const addComment = (postId, formData) => async dispatch => {
   };
   try {
     const res = await axios.post(
-      `/api/posts/comment/${postId}`,
+      `https://code-aid.onrender.com/api/posts/comment/${postId}`,
       formData,
       config
     );
@@ -122,7 +122,7 @@ export const addComment = (postId, formData) => async dispatch => {
 // Remove a comment
 export const removeComment = (postId, commentId) => async dispatch => {
   try {
-    const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+    const res = await axios.delete(`https://code-aid.onrender.com/api/posts/comment/${postId}/${commentId}`);
     dispatch({
       type: REMOVE_COMMENT,
       payload: res.data,

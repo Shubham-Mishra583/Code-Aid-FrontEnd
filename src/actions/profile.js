@@ -27,7 +27,7 @@ export const getCurrentProfile = () => async dispatch => {
 export const getAllProfiles = () => async dispatch => {
   dispatch({ type: CLEAR_PROFILE });
   try {
-    const res = await axios.get('/api/profile');
+    const res = await axios.get('https://code-aid.onrender.com/api/profile');
     dispatch({
       type: GET_PROFILES,
       payload: res.data,
@@ -40,7 +40,7 @@ export const getAllProfiles = () => async dispatch => {
 // Get profile by user id
 export const getProfileById = id => async dispatch => {
   try {
-    const res = await axios.get(`/api/profile/user/${id}`);
+    const res = await axios.get(`https://code-aid.onrender.com/api/profile/user/${id}`);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -53,7 +53,7 @@ export const getProfileById = id => async dispatch => {
 // Get Github repos
 export const getGithubRepos = username => async dispatch => {
   try {
-    const res = await axios.get(`/api/profile/github/${username}`);
+    const res = await axios.get(`https://code-aid.onrender.com/api/profile/github/${username}`);
     dispatch({
       type: GET_GITHUB_REPOS,
       payload: res.data,
@@ -83,7 +83,7 @@ export const createProfile = (
     },
   };
   try {
-    const res = await axios.post('/api/profile', formData, config);
+    const res = await axios.post('https://code-aid.onrender.com/api/profile', formData, config);
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,
@@ -112,7 +112,7 @@ export const addExperience = (formData, history) => async dispatch => {
     },
   };
   try {
-    const res = await axios.put('/api/profile/experience', formData, config);
+    const res = await axios.put('https://code-aid.onrender.com/api/profile/experience', formData, config);
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,
@@ -139,7 +139,7 @@ export const addEducation = (formData, history) => async dispatch => {
     },
   };
   try {
-    const res = await axios.put('/api/profile/education', formData, config);
+    const res = await axios.put('https://code-aid.onrender.com/api/profile/education', formData, config);
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,
@@ -161,7 +161,7 @@ export const addEducation = (formData, history) => async dispatch => {
 // Delete Experience
 export const deleteExperience = id => async dispatch => {
   try {
-    const res = await axios.delete(`/api/profile/experience/${id}`);
+    const res = await axios.delete(`https://code-aid.onrender.com/api/profile/experience/${id}`);
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,
@@ -175,7 +175,7 @@ export const deleteExperience = id => async dispatch => {
 // Delete Education
 export const deleteEducation = id => async dispatch => {
   try {
-    const res = await axios.delete(`/api/profile/education/${id}`);
+    const res = await axios.delete(`https://code-aid.onrender.com/api/profile/education/${id}`);
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,
