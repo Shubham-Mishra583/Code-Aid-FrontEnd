@@ -13,7 +13,7 @@ import {
 // Get current user profile
 export const getCurrentProfile = () => async dispatch => {
   try {
-    const res = await axios.get('/api/profile/me');
+    const res = await axios.get('https://code-aid.onrender.com/api/profile/me');
     dispatch({
       type: GET_PROFILE,
       payload: res.data,

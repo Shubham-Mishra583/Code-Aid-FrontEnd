@@ -29,6 +29,9 @@ if (token) {
   setAuthToken(token);
 }
 
+export const URL = process.env.REACT_APP_SERVER_URL;
+
+
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());

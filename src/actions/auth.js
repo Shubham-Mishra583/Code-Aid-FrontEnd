@@ -12,13 +12,15 @@ import {
   CLEAR_PROFILE,
 } from './types';
 
+import {URL} from '../App';
+
 // Load user
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
   try {
-    const res = await axios.get('/api/auth');
+    const res = await axios.get('https://code-aid.onrender.com/api/auth');
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -69,7 +71,8 @@ export const login = (email, password) => async dispatch => {
   };
   const body = JSON.stringify({ email, password });
   try {
-    const res = await axios.post('https://code-aid.onrender.com/api/auth', body, config);
+    const res = await axios.post("https://code-aid.onrender.com/api/auth", body, config);
+    console.log(res);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
