@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import login from '../../img/login.jpg';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 
@@ -33,6 +34,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
+ <div className="main">
+     <div className="left">
       <h1 className='large text-primary'>Sign Up</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Create Your Account
@@ -45,7 +48,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name='name'
             value={name}
             onChange={e => onChange(e)}
-            required
+            // required
+            autoComplete='off'
           />
         </div>
         <div className='form-group'>
@@ -55,7 +59,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name='email'
             value={email}
             onChange={e => onChange(e)}
-            required
+            // required
+            autoComplete='off'
           />
           <small className='form-text'>
             This site uses Gravatar so if you want a profile image, use a
@@ -70,7 +75,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             minLength='6'
             value={password}
             onChange={e => onChange(e)}
-            required
+            // required
+            autoComplete='off'
           />
         </div>
         <div className='form-group'>
@@ -81,7 +87,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             minLength='6'
             value={password2}
             onChange={e => onChange(e)}
-            required
+            // required
+            autoComplete='off'
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />
@@ -89,6 +96,12 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <p className='my-1'>
         Already have an account? <Link to='/login'>Sign In</Link>
       </p>
+      </div>
+
+      <div className="right">
+        <img src={login} alt="" />
+      </div>
+     </div>
     </Fragment>
   );
 };

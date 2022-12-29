@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import login1 from '../../img/login.jpg';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
@@ -26,6 +27,8 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
+      <div className="main">
+      <div className="left">
       <h1 className='large text-primary'>Sign In</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Sign Into Your Account
@@ -39,6 +42,7 @@ const Login = ({ login, isAuthenticated }) => {
             value={email}
             onChange={e => onChange(e)}
             required
+            autoComplete='off'
           />
         </div>
         <div className='form-group'>
@@ -57,6 +61,12 @@ const Login = ({ login, isAuthenticated }) => {
       <p className='my-1'>
         Don't have an account? <Link to='/register'>Sign Up</Link>
       </p>
+      </div>
+
+      <div className="right">
+        <img src={login1} alt="" />
+      </div>
+    </div>
     </Fragment>
   );
 };

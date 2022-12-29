@@ -8,22 +8,25 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
+        <Link to="/ide">IDE</Link>
       </li>
       <li>
-        <Link to='/posts'>Posts</Link>
+        <Link to="/profiles">Developers</Link>
+      </li>
+      <li>
+        <Link to="/posts">Posts</Link>
       </li>
       <li>
         |
-        <Link to='/dashboard'>
-          <i className='fas fa-user' />
-          <span className='hide-sm'> Dashboard</span>
+        <Link to="/dashboard">
+          <i className="fas fa-user" />
+          <span className="hide-sm"> Dashboard</span>
         </Link>
       </li>
       <li>
-        <a href='#!' onClick={logout}>
-          <i className='fas fa-sign-out-alt' />
-          <span className='hide-sm'> Logout</span>
+        <a href="/" onClick={logout}>
+          <i className="fas fa-sign-out-alt" />
+          <span className="hide-sm"> Logout</span>
         </a>
       </li>
     </ul>
@@ -32,28 +35,31 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
+        <Link to="/ide">IDE</Link>
       </li>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to="/profiles">Developers</Link>
       </li>
       <li>
-        <Link to='/login'>Login</Link>
+        <Link to="/register">Register</Link>
+      </li>
+      <li>
+        <Link to="/login">Login</Link>
       </li>
     </ul>
   );
 
   return (
-    <nav className='navbar bg-dark'>
-      <h1>
-        <Link to='/'>
-          <i className='fas fa-code' /> DevConnector
-        </Link>
-      </h1>
-      {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-      )}
-    </nav>
+    <>
+      <nav className="navbar bg-dark">
+        <h1>
+          <Link to="/">
+            <i className="fas fa-code" /> CodeAid
+          </Link>
+        </h1>
+        {!loading && <div>{isAuthenticated ? authLinks : guestLinks}</div>}
+      </nav>
+    </>
   );
 };
 
