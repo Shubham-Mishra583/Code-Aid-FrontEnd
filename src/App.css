@@ -321,6 +321,8 @@ button {
 }
 
 /* Navbar */
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -355,6 +357,34 @@ button {
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+.nav-guest-mobile{
+  color: black;
+  display: none;
+}
+
+.nav-guest-mobile button{
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: white;
+  position: relative;
+  right: -38px;
+}
+
+.nav-guest-mobile button span{
+  text-align: center;
+  position: relative;
+  left: -1.5px;
+  /* margin-left: -8px; */
+}
+
+.nav-guest-mobile .drawer{
+  display: flex;
+  flex-direction: column;
+  background-color: red;
 }
 
 /* Landing Page */
@@ -540,6 +570,14 @@ button {
   .main{
     flex-direction: column;
   }
+
+  .navbar ul{
+    display: none;
+  }
+
+  .nav-guest-mobile{
+    display: block;
+  }
 }
 
 @media (max-width: 700px) {
@@ -570,8 +608,18 @@ button {
 
   /* Navbar */
   .navbar {
-    display: block;
+    /* display: block; */
+    display: flex;
+    align-items: center;
     text-align: center;
+    justify-content: space-between;
+    /* width: 400px; */
+    width: 100%;
+  }
+  .navbar a{
+    position: relative;
+    top: 9px;
+    left: -40px;
   }
 
   .navbar ul {

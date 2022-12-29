@@ -1,12 +1,24 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { logout } from '../../actions/auth';
+import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logout } from "../../actions/auth";
+import { Button, Drawer } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 
 const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
+  const [visible, setVisible] = useState(false);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+  };
+
   const authLinks = (
-    <ul>
+    <>
+      <ul>
       <li>
         <Link to="/ide">IDE</Link>
       </li>
@@ -30,23 +42,77 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
         </a>
       </li>
     </ul>
+
+    <div className="nav-guest-mobile">
+               {" "}
+        <button onClick={showDrawer}>
+              <span><MenuOutlined/></span>
+          </button>
+
+        <Drawer
+        title="Menu"
+        placement="right"
+        onClose={onClose}
+        visible={visible}
+      >
+        <div className="drawer" style={{display : "flex", flexDirection : "column"}}>
+          <Link to = "/">Home</Link>
+          <Link to = "/ide">IDE</Link>
+          <Link to = "/profiles">Developers</Link>
+          <Link to="/posts">Posts</Link>
+          <Link to = "/dashboard"></Link>
+          <a href="/" onClick={logout}>Logout</a>
+        </div>
+
+      </Drawer>
+      </div>
+    </>
   );
 
   const guestLinks = (
-    <ul>
-      <li>
-        <Link to="/ide">IDE</Link>
-      </li>
-      <li>
-        <Link to="/profiles">Developers</Link>
-      </li>
-      <li>
-        <Link to="/register">Register</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-    </ul>
+    <>
+      <ul className="nav-guest">
+        <li>
+          <Link to="/ide">IDE</Link>
+        </li>
+
+        <li>
+          <Link to="/profiles">Developers</Link>
+        </li>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      </ul>
+
+      <div className="nav-guest-mobile">
+               {" "}
+        {/* <Button > */}
+          <button onClick={showDrawer}>
+              <span><MenuOutlined/></span>
+          </button>
+                  
+        {/* </Button> */}
+
+        <Drawer
+        title="Menu"
+        placement="right"
+        onClose={onClose}
+        visible={visible}
+      >
+        <div className="drawer" style={{display : "flex", flexDirection : "column"}}>
+          <Link to = "/">Home</Link>
+          <Link to = "/ide">IDE</Link>
+          <Link to = "/profiles">Developers</Link>
+          <Link to = "/register">Register</Link>
+          <Link to = "/login">Login</Link>
+        </div>
+
+      </Drawer>
+      </div>
+    </>
   );
 
   return (
@@ -68,11 +134,8 @@ Navbar.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar);
